@@ -10,6 +10,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface TaskMapper {
     Task toTask(CreateTaskRequest request);
-    @Mapping(target = "assignee", ignore = true)
+    @Mapping(target = "assigneeId", ignore = true)
     TaskResponse toTaskResponse (Task task);
 }

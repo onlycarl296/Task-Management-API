@@ -49,4 +49,11 @@ public class TaskController {
                 .result(taskService.getTasks(assigneeId, status,dueDate,pageNo,pageSize))
                 .build();
     }
+
+    @GetMapping("/{id}")
+    public ApiResponse<TaskResponse> getTask(@PathVariable Long id) {
+        return ApiResponse.<TaskResponse>builder()
+                .result(taskService.getTask(id))
+                .build();
+    }
 }

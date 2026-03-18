@@ -50,7 +50,7 @@ public class UserService {
     public List<UserResponse> getUsers(String name, int pageNo, int  pageSize) {
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         Page<User> users;
-        if (name.isEmpty()) {
+        if (name==null || name.isEmpty()) {
             users = userRepository.findAll(pageable);
         } else {
             users = userRepository.findAllByName(name, pageable);

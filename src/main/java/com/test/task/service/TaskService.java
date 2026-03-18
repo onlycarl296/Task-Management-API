@@ -98,4 +98,10 @@ public class TaskService {
         }, pageable);
         return  taskPage.getContent().stream().map(taskMapper::toTaskResponse).toList();
     }
+
+    public TaskResponse getTask(Long id) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.TASK_NOT_EXISTED));;
+        return  taskMapper.toTaskResponse(task);
+    }
 }
